@@ -28,7 +28,7 @@ describe('here comes <App />', () => {
     testDOM.getByText(/something/i);  // i means case-insenstive
   })
 
-  // ANOTHER way to use getByText
+  // ANOTHER way to use getByText with destructuring 
   it('ALT WAY >> should shows an h2 component with text "something"', () => {
     const {getByText} = render(<App/>);  // deconstructed !!!
     getByText(/something/i);
