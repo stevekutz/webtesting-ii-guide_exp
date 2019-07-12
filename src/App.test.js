@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {render} from '@testing-library/react'; // ONLY NEED THIS ONE !!!
+import {render, fireEvent} from '@testing-library/react'; // ONLY NEED THIS ONE !!!
 import '@testing-library/react/cleanup-after-each'; // Automatically resets render for each test
+import { jsxSpreadAttribute, exportAllDeclaration } from '@babel/types';
+import { Decipher } from 'crypto';
+import { get } from 'http';
 
 
 describe('here comes <App />', () => {
@@ -35,6 +38,25 @@ describe('here comes <App />', () => {
     const {getByText} = render(<App/>);  // deconstructed !!!
     getByText(/something/i);
   })
+
+  describe('Greet button ', () => {
+    it('says hello to developers', () => {
+      const {getByText, queryByText} = render(<App/>);
+      // find button
+      const button = getByText(/greet/i);
+      // click it
+      fireEvent.click(button)
+      // confirm that 'hello developers' is there
+      const queryTest = queryByText(/greet/i);// passes
+      const queryTestNOT = queryByText(/NOPE/i);// passes
+      expect(queryTest).toBeTruthy();
+      expect(queryTestNOT).not.toBeTruthy();
+    })
+    
+    
+    
+  })
+
 
 })
 
