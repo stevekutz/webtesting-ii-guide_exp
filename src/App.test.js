@@ -29,6 +29,7 @@ describe('here comes <App />', () => {
   })
 
   // ANOTHER way to use getByText with destructuring 
+  //  something added here
   it('ALT WAY >> should shows an h2 component with text "something"', () => {
     const {getByText} = render(<App/>);  // deconstructed !!!
     getByText(/something/i);
