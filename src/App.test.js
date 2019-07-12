@@ -3,10 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import {render} from '@testing-library/react'; // ONLY NEED THIS ONE !!!
 import '@testing-library/react/cleanup-after-each'; // Automatically resets render for each test
-<<<<<<< HEAD
 
-=======
->>>>>>> temp
 
 describe('here comes <App />', () => {
   it('renders without crashing', () => {
