@@ -48,9 +48,16 @@ describe('here comes <App />', () => {
       fireEvent.click(button)
       // confirm that 'hello developers' is there
       const queryTest = queryByText(/greet/i);// passes
-      const queryTestNOT = queryByText(/NOPE/i);// passes
-      expect(queryTest).toBeTruthy();
-      expect(queryTestNOT).not.toBeTruthy();
+      const queryTestNOT = queryByText(/NOPE/i);// passes because null returned
+
+      expect(queryTest).toBeTruthy(); // passes
+      expect(queryTestNOT).not.toBeTruthy(); //passes
+ //     expect(queryTestNOT).toBeTruthy(); //fails
+/*
+      const getTest = getByText(/greet/i); // passes
+      const getTestNOT = getByText(/NOPE/i); // FAILS test
+      console.log('FAIL-FAIL-FAIL-FAIL-FAIL-FAIL-FAIL-FAIL-FAIL');
+*/      
     })
     
     
