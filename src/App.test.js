@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import {render, fireEvent} from '@testing-library/react'; // ONLY NEED THIS ONE !!!
 import '@testing-library/react/cleanup-after-each'; // Automatically resets render for each test
-import { jsxSpreadAttribute, exportAllDeclaration } from '@babel/types';
-import { Decipher } from 'crypto';
-import { get } from 'http';
+
 
 
 describe('here comes <App />', () => {
@@ -48,16 +46,14 @@ describe('here comes <App />', () => {
       fireEvent.click(button)
       // confirm that 'hello developers' is there
       const queryTest = queryByText(/greet/i);// passes
-      const queryTestNOT = queryByText(/NOPE/i);// passes because null returned
+      const queryTestNOT = queryByText(/NOPE/i);// passes because null
 
       expect(queryTest).toBeTruthy(); // passes
-      expect(queryTestNOT).not.toBeTruthy(); //passes
- //     expect(queryTestNOT).toBeTruthy(); //fails
-/*
+      expect(queryTestNOT).not.toBeTruthy();
+
       const getTest = getByText(/greet/i); // passes
-      const getTestNOT = getByText(/NOPE/i); // FAILS test
-      console.log('FAIL-FAIL-FAIL-FAIL-FAIL-FAIL-FAIL-FAIL-FAIL');
-*/      
+   //   const getTestNOT = getByText(/NOPE/i); // FAILS test
+   //   console.log('FAIL-FAIL-FAIL-FAIL-FAIL-FAIL-FAIL-FAIL-FAIL');
     })
     
     
